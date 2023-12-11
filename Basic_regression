@@ -1,0 +1,35 @@
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate dummy dataset
+np.random.seed(0)
+X = np.random.rand(100, 1)
+y = 2 + 3 * X + np.random.randn(100, 1)
+
+# Model the dataset
+X_b = np.c_[np.ones((100, 1)), X]  # Add bias term
+theta_best = np.linalg.inv(X_b.T.dot(X_b)).dot(X_b.T).dot(y)
+
+# Visualize the problem
+plt.scatter(X, y)
+plt.plot(X, X_b.dot(theta_best), 'r-')
+plt.xlabel('X')
+plt.ylabel('y')
+plt.title('Linear Regression')
+
+# Add fitting parameters to the graph
+fitting_parameters = f'y = {theta_best[0][0]} + {theta_best[1][0]} * X'
+plt.text(0.1, 0.9, fitting_parameters, transform=plt.gca().transAxes)
+
+plt.show()
+
+# Save dataset and fitting parameters to a text file
+output_file_path = os.path.join(os.path.dirname(__file__), 'dataset_and_parameters.txt')
+with open(output_file_path, 'w') as file:
+    file.write('Dataset:\n')
+    file.write('X, y\n')
+    for i in range(len(X)):
+        file.write(f'{X[i][0]}, {y[i][0]}\n')
+    file.write('\nFitting Parameters:\n')
+    file.write(f'y = {theta_best[0][0]} + {theta_best[1][0]} * X')
