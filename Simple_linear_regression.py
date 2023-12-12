@@ -13,10 +13,11 @@ data = pd.DataFrame({'temperature': temperature, 'energy': energy})
 # Save DataFrame to CSV
 data.to_csv('energydata.csv', index=False)
 
-# Rest of your code...
+# Rest of the code
 from sklearn.model_selection import train_test_split 
 from sklearn.linear_model import LinearRegression
 from sklearn import metrics
+import numpy as np
 
 # Load dataset
 dataset = pd.read_csv('energydata.csv')
