@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 # Generate random data
 np.random.seed(0)
-temperature = np.random.randint(0, 100, size=100)
-energy = np.random.randint(100, 1000, size=100)
+temperature = np.random.randint(-20, 40, size=100)
+energy = np.random.randint(-500, 3000, size=100)
 
 # Create DataFrame
 data = pd.DataFrame({'temperature': temperature, 'energy': energy})
@@ -22,8 +22,8 @@ import numpy as np
 # Load dataset
 dataset = pd.read_csv('energydata.csv')
 
-X = dataset['temperature'].values.reshape(-1,1)
-y = dataset['energy'].values.reshape(-1,1)
+X = np.array(dataset['temperature']).reshape(-1,1)
+y = np.array(dataset['energy']).reshape(-1,1)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
