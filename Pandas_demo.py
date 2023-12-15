@@ -23,7 +23,7 @@ df = pd.DataFrame(data)
 # Display the DataFrame
 print("\nDataFrame:")
 print(df)
- 
+
 while True:
     user_input = input("\nType 'next' to continue or 'exit' to end the demo: ")
     if user_input == 'next':
@@ -31,9 +31,10 @@ while True:
     elif user_input == 'exit':
         exit()
 
-print("DataFrame:")
-print(df)
-plt.show()
+# Display the DataFrame with full object
+print("\nDataFrame:")
+with pd.option_context('display.max_rows', None, 'display.max_columns', None):
+    print(df)
 
 while True:
     user_input = input("\nType 'next' to continue or 'exit' to end the demo: ")
@@ -55,7 +56,7 @@ while True:
 
 # Filter the DataFrame
 print("\nFiltered DataFrame:")
-filtered_df = df[df['Age'] > 26]
+filtered_df = df[df['Age'] > 37]
 print(filtered_df)
 
 while True:
@@ -70,14 +71,28 @@ print("\nGrouped DataFrame:")
 grouped_df = df.groupby('Name').count()
 print(grouped_df)
 
-while True:
-    user_input = input("\nType 'next' to continue or 'exit' to end the demo: ")
-    if user_input == 'next':
-        break
-    elif user_input == 'exit':
-        exit()
-
 # Plot a bar chart of the grouped DataFrame
 print("\nBar Chart:")
 grouped_df.plot(kind='bar')
+plt.show()
+
+# Plot a line chart of the grouped DataFrame
+print("\nLine Chart:")
+grouped_df.plot(kind='line')
+plt.show()
+
+# Plot a scatter chart of the DataFrame
+print("\nScatter Chart:")
+df.plot(kind='scatter', x='Age', y='City')
+plt.show()
+
+
+# Plot a histogram of the DataFrame
+print("\nHistogram:")
+df['Age'].plot(kind='hist')
+plt.show()
+
+# Plot a pie chart of the DataFrame
+print("\nPie Chart:")
+df['City'].value_counts().plot(kind='pie')
 plt.show()
