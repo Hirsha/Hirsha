@@ -41,4 +41,14 @@ plt.plot(X, regressor.predict(X), color='red')
 plt.xlabel('Temperature')
 plt.ylabel('Energy')
 plt.title('Simple Linear Regression')
+
+# Highlight relevant points in red and annotate their coordinates
+plt.scatter(X_test, y_test, color='red')
+# Find the 10 nearest points to the fitted line
+distances = np.abs(y_test - regressor.predict(X_test))
+nearest_indices = np.argsort(distances.flatten())[:10]
+nearest_points = list(zip(X_test.flatten()[nearest_indices], y_test.flatten()[nearest_indices]))
+for point in nearest_points:
+    plt.annotate(f'({point[0]}, {point[1]})', point, textcoords="offset points", xytext=(0,10), ha='center', color='red')
+
 plt.show()
