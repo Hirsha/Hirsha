@@ -33,5 +33,3 @@ with open(output_file_path, 'w') as file:
         file.write(f'{X[i][0]}, {y[i][0]}\n')
     file.write('\nFitting Parameters:\n')
     file.write(f'y = {theta_best[0][0]} + {theta_best[1][0]} * X')
-
-print("This is a test. Printing a text. Why does this sound like a heaven. And what about the pbt keycaps??? They still might be better than this. I don't know. So hard to choose. The grass will always be greener on the other side. What else to mention. Other than we live in a world full of surprises.")
