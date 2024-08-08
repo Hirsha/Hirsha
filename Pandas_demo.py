@@ -10,7 +10,11 @@ data = {'Name': [],
     'Age': [],
     'City': []}
 
+<<<<<<< HEAD
 for _ in range(10000):
+=======
+for _ in range(100000):
+>>>>>>> b9df6e35e3a4593cc2d8a79e12a459220ac5e08e
     name = fake.first_name()
     age = random.randint(20, 40)
     city = random.choice(['New York', 'London', 'Paris', 'Tokyo', 'Prague'])
@@ -18,8 +22,8 @@ for _ in range(10000):
     data['Age'].append(age)
     data['City'].append(city)
 
-df = pd.DataFrame(data)
 
+df = pd.DataFrame(data)
 # Display the DataFrame
 print("\nDataFrame:")
 print(df)
