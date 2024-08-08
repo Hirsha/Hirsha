@@ -18,7 +18,7 @@ plt.xlabel('X')
 plt.ylabel('y')
 plt.title('Linear Regression')
 
-# Add fitting parameters to the graph
+# Add fitting parameters to the graph``
 fitting_parameters = f'y = {theta_best[0][0]} + {theta_best[1][0]} * X'
 plt.text(0.1, 0.9, fitting_parameters, transform=plt.gca().transAxes)
 

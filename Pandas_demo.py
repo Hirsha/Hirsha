@@ -10,7 +10,7 @@ data = {'Name': [],
     'Age': [],
     'City': []}
 
-for _ in range(100):
+for _ in range(10000):
     name = fake.first_name()
     age = random.randint(20, 40)
     city = random.choice(['New York', 'London', 'Paris', 'Tokyo', 'Prague'])
