@@ -1,5 +1,6 @@
 import pandas as pd
 import random
+
 from faker import Faker
 import matplotlib.pyplot as plt
 
@@ -96,4 +97,8 @@ plt.show()
 # Plot a pie chart of the DataFrame
 print("\nPie Chart:")
 df['City'].value_counts().plot(kind='pie')
+plt.show()
+
+print ("\nLine Chart:")
+df['City'].value_counts().plot(kind='bar')
 plt.show()
